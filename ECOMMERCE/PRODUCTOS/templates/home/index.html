@@ -1,0 +1,16 @@
+{% extends "home/layout.html" %}
+{% load static %}
+{% block body %}
+
+    <h1>PRODUCTOS</h1>
+    
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/prod.jpeg' %}" class="card-img-top" alt="producto1">
+        <div class="card-body">
+          <h6 class="card-title">$ 1000</h6>
+          <h5 class="card-title">Nombre del producto</h5>
+          <a href="#" class="btn btn-primary">Ver Mas</a>
+        </div>
+    </div>
+
+{% endblock %}
