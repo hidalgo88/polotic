@@ -26,3 +26,17 @@ def eliminar(request, producto_id):
     producto = Producto.objects.get(id = producto_id)
     producto.delete()
     return redirect("home")
+
+def editar(request, producto_id):
+    producto = Producto.objects.get(id = producto_id)
+    if request.method == "POST":
+        form = ProductoForm(request.POST, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+
+    else:
+        form = ProductoForm(instance=producto)
+
+    context = {"form" : form}
+    return render(request, "home/editar.html", context)
