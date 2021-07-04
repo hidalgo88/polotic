@@ -14,19 +14,9 @@
           <a href="#" class="btn btn-primary">Ver Mas</a>
         </div>
       </div>
-<!-- 
-      <h6 class="card-title">{{ producto.precio }}</h6> -->
-      {% endfor %}
 
-    
-    
-    <!-- <div class="card" style="width: 18rem;">
-        <img src="{% static 'images/prod.jpeg' %}" class="card-img-top" alt="producto1">
-        <div class="card-body">
-          <h6 class="card-title">${{ producto.precio }</h6>
-          <h5 class="card-title">{{ producto.nombre }</h5>
-          <a href="#" class="btn btn-primary">Ver Mas</a>
-        </div>
-    </div> -->
+      <a href="{% url 'eliminar' producto.id %}"><button class="btn btn-primary btn-sm">Eliminar</button></a>
+
+      {% endfor %}
 
 {% endblock %}

@@ -21,3 +21,8 @@ def agregar(request):
 
     context = {'form' : form}
     return render(request, 'home/agregar.html', context)
+
+def eliminar(request, producto_id):
+    producto = Producto.objects.get(id = producto_id)
+    producto.delete()
+    return redirect("home")

@@ -7,3 +7,7 @@ body{
 
     min-height: 100vh;
 }
+
+#botonEliminar a{
+    color: white;
+}
