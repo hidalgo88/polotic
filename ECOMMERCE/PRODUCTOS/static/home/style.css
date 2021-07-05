@@ -1,13 +1,37 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-
-    min-height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#botonEliminar a{
-    color: white;
+body {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* NAVBAR */
+
+.navSuperior {
+  background-color: #0a1931;
+}
+
+.navSuperior ul li a {
+  color: #f5f5f5;
+}
+.navSuperior ul li a:hover {
+  outline: 2px solid #f5f5f5;
+  color: #f5f5f5;
+}
+.navSuperior ul li a:focus {
+  outline: 2px solid #f5f5f5;
+  color: #f5f5f5;
+}
+#bgActive{
+  background-color: #0a1931;
+}
+#bgActive li a{
+  color: #f5f5f5;
+}
+#bgActive li a:hover{
+  color: #0a1931;
 }
