@@ -25,7 +25,7 @@ def agregar(request):
 def eliminar(request, producto_id):
     producto = Producto.objects.get(id = producto_id)
     producto.delete()
-    return redirect("home")
+    return redirect('home')
 
 def editar(request, producto_id):
     producto = Producto.objects.get(id = producto_id)
@@ -33,10 +33,22 @@ def editar(request, producto_id):
         form = ProductoForm(request.POST, instance=producto)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect('home')
 
     else:
         form = ProductoForm(instance=producto)
 
     context = {"form" : form}
-    return render(request, "home/editar.html", context)
+    return render(request, 'home/editar.html', context)
+
+def buscar(request):
+    if request.method == "GET":
+        busqueda = request.GET.get('buscar')
+        productos = Producto.objects.filter(
+            nombre__icontains = busqueda
+        )
+
+        return render(request, 'home/buscar.html', {'busqueda' : busqueda, 'productos' : productos})
+    
+    else:
+        return render(request, 'home/buscar.html', {})        

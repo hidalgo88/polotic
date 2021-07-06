@@ -65,10 +65,11 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex searchButton">
+                <form class="d-flex searchButton" method="GET" action="{% url 'buscar' %}">
+                    {% csrf_token %}
                     <input class="form-control me-2" type="search" placeholder="Ingrese su busqueda"
-                        aria-label="Search">
-                    <button type="button" class="btn btn-outline-light">Buscar</button>
+                        aria-label="Search" name="buscar">
+                    <button type="submit" class="btn btn-outline-light">Buscar</button>
                 </form>
             </div>
         </div>

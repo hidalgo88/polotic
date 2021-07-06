@@ -1,0 +1,17 @@
+{% extends "home/layout.html" %}
+{% load static %}
+{% block body %}
+
+{% if busqueda %}
+
+    <h1>Resultados para {{ busqueda }}</h1>
+    <br>
+    {% for producto in productos %}
+        {{ producto }} <br>
+    {% endfor %}
+
+{% else %}
+    <h1>No realizaste ninguna busqueda</h1>
+{% endif %}
+
+{% endblock %}

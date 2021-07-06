@@ -8,4 +8,4 @@ class Producto(models.Model):
     precio = models.IntegerField()
     
     def __str__(self):
-        return f"{self.nombre}: {self.descripcion}, cuesta ${self.precio}"
+        return self.nombre
