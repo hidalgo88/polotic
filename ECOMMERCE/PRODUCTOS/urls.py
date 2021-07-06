@@ -6,6 +6,8 @@ urlpatterns = [
     # path('', views.index, name="index"),
     path('home/', views.home, name="home"),
 
+    path('verProducto/<int:producto_id>/', views.verProducto, name="verProducto"),
+
     path('buscar/', views.buscar, name="buscar"),
 
     path('agregar/', views.agregar, name="agregar"),

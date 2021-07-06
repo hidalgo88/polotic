@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import Producto
 from .forms import ProductoForm
 
@@ -15,10 +17,8 @@ def agregar(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-
     else:
         form = ProductoForm()
-
     context = {'form' : form}
     return render(request, 'home/agregar.html', context)
 
@@ -34,7 +34,6 @@ def editar(request, producto_id):
         if form.is_valid():
             form.save()
             return redirect('home')
-
     else:
         form = ProductoForm(instance=producto)
 
@@ -47,8 +46,12 @@ def buscar(request):
         productos = Producto.objects.filter(
             nombre__icontains = busqueda
         )
-
-        return render(request, 'home/buscar.html', {'busqueda' : busqueda, 'productos' : productos})
-    
+        return render(request, 'home/buscar.html', {'busqueda' : busqueda, 'productos' : productos})    
     else:
-        return render(request, 'home/buscar.html', {})        
+        return render(request, 'home/buscar.html', {})
+
+def verProducto(request, producto_id):
+    verProducto = Producto.objects.get(id=producto_id)
+    return render(request, 'home/verProducto.html', {
+        'producto' : verProducto,
+    })
