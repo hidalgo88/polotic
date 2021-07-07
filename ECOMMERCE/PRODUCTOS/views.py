@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Producto
+from .models import Producto, Categoria
 from .forms import ProductoForm, CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
@@ -10,12 +10,15 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 def home(request):
     productos = Producto.objects.all().order_by('-id')
-    context = {'productos': productos}
+    categorias = Categoria.objects.all()
+    context = {'productos': productos, 'categorias': categorias}
     return render(request, "home/index.html", context)
 
 
 def contacto(request):
-    return render(request, "home/contacto.html")
+    categorias = Categoria.objects.all()
+    context = {'categorias': categorias}
+    return render(request, "home/contacto.html", context)
 
 
 def nosotros(request):
@@ -31,7 +34,9 @@ def agregar(request):
             return redirect('home')
     else:
         form = ProductoForm()
-    context = {'form' : form}
+    
+    categorias = Categoria.objects.all()
+    context = {'form' : form, 'categorias': categorias}
     return render(request, 'home/agregar.html', context)
 
 @permission_required('app.delete_producto')
@@ -51,7 +56,8 @@ def editar(request, producto_id):
     else:
         form = ProductoForm(instance=producto)
 
-    context = {"form" : form}
+    categorias = Categoria.objects.all()
+    context = {'form' : form, 'categorias': categorias}
     return render(request, 'home/editar.html', context)
 
 def buscar(request):
@@ -60,18 +66,22 @@ def buscar(request):
         productos = Producto.objects.filter(
             nombre__icontains = busqueda
         )
-        return render(request, 'home/buscar.html', {'busqueda' : busqueda, 'productos' : productos})    
+        categorias = Categoria.objects.all()
+        return render(request, 'home/buscar.html', {'busqueda' : busqueda, 'productos' : productos, 
+        'categorias': categorias})    
     else:
         return render(request, 'home/buscar.html', {})
 
 def verProducto(request, producto_id):
-    verProducto = Producto.objects.get(id=producto_id)
+    verProducto = Producto.objects.get(id=producto_id)    
+    categorias = Categoria.objects.all()    
     return render(request, 'home/verProducto.html', {
         'producto' : verProducto,
+        'categorias': categorias,
     })
 
 def registro(request):
-    data = {
+    context = {
         'form' : CustomUserCreationForm()
     }
     if request.method == 'POST':
@@ -80,6 +90,7 @@ def registro(request):
             formulario.save()
             user = authenticate(username=formulario.cleaned_data['username'], password=formulario.cleaned_data['password1'])
             login(request, user)
-            return redirect(to='home')
-        data['form'] = formulario
-    return render(request, 'registration/registro.html', data)
+            return redirect(to='home')            
+        categorias = Categoria.objects.all()
+        context = {'form' : formulario, 'categorias': categorias}
+    return render(request, 'registration/registro.html', context)
