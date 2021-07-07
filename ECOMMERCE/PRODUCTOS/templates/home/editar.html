@@ -2,15 +2,14 @@
 {% load static %}
 {% block body %}
 
-    <form action="" method="POST">
+{% load crispy_forms_tags %}
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        <h2>EDITAR PRODUCTO</h2>
         {% csrf_token %}
-        {% for field in form.visible_fields %}
-        <div class="form-floating mb-3">
-            {{ field }}
-            <label for="floatingInput">{{ field.label }}</label>
-        </div>
-        {% endfor %}
+        {{ form | crispy }}
+        <br>
         <button type="submit" class="btn btn-primary btn-sm">Editar Producto</button>
-    </form>
+    </form>    
 
 {% endblock %}

@@ -1,0 +1,38 @@
+{% extends "home/layout.html" %}
+{% load static %}
+{% block body %}
+
+    <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+            <div class="col-md-4">
+                <img src="{% static 'images/ferreteria.jpg' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">NUESTRA HISTORIA</h5>
+                    <p class="card-text">Hace más de 60 años nos dedicamos a la construcción y refacción de hogares, pero también y fundamentalmente a la construcción de vínculos entre las personas. Escuchando, compartiendo, y entendiendo lo que viven cuando comienzan una obra: alegría, ilusión, y muchas expectativas.
+                    
+                    Una casa puede ser la obra más importante de su vida, porque esas paredes serán en definitiva su hogar, que se llenará de futuro y de proyectos de vida. Que son los que nos hacen ir para adelante a todos.
+                    
+                    A vos y a nosotros. Esos proyectos de vida son los que nos importan y por ellos trabajamos día a día. Para ayudar a que cada familia pueda cumplirlos, porque nosotros también somos familia, la tuya.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">NUESTROS VALORES</h5>
+                    <p class="card-text">Hace tiempo, nos preguntamos cuál era el propósito de nuestra existencia. Cuál era nuestra visión a futuro como empresa, hacia nuestros clientes o la sociedad. Lo primero que hicimos fue mirarnos a nosotros mismos. Y lo que vimos no nos sorprendió, al contrarió nos confortó.
+
+                    Estábamos rodeados de muy buena gente. Gente con trayectoria y energía y gente joven que se suma dando lo mejor yendo hacia delante con entusiasmo. Formando todos un gran equipo lleno de pasión por su trabajo. Y que junto a nuestros clientes forman una familia mucho más grande aun. Una familia que abre sus puertas para que entren ideas, experiencias y consejos, que generan cambios y mejoras, que en definitiva, construyen esos proyectos de vida que buscamos cumplir juntos.</p>
+                </div>                
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/ferreteria1.jpg' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -4,9 +4,23 @@
 
     <h1>PRODUCTO</h1>
 
-        {{ producto.nombre }}
-        {{ producto.descripcion }}
-        {{ producto.precio }}
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{ media_url  }}{{ producto.imagen.url }}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ producto.nombre }}</h5>
+              <p class="card-text">{{ producto.descripcion }}.</p>
+              <p class="card-text">PRECIO ${{ producto.precio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <br><br>
+    <a href="{% url 'home' %}">Volver a la Pantalla Principal</a>
 
 
 {% endblock %}

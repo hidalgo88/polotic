@@ -7,7 +7,7 @@
     <h1>Resultados para {{ busqueda }}</h1>
     <br>
     {% for producto in productos %}
-        {{ producto }} <br>
+        <a href="{% url 'verProducto' producto.id %}">{{ producto }}</a> <br>
     {% endfor %}
 
 {% else %}
