@@ -17,13 +17,13 @@
 
     <div class="navSuperior">
         <ul class="container nav justify-content-end">
-            <a class="navbar-brand flex-grow-1 align-self-center" href="#">
-                <img src="{% static 'images/logo.png' %}" alt="" width="200">
-            </a>
+            <div class="flex-grow-1">
+                <img id="ocultarLogo" src="{% static 'images/logo.png' %}" alt="" width="200">
+            </div>
+            <div class="flex-grow-1">
+                <img id="logo" src="{% static 'images/logoSolo.png' %}" alt="" width="200">                
+            </div>
             {% if user.is_authenticated %}
-            <li class="nav-item align-self-center">
-                <span class="me-3" href="">Bienvenido/a {{ user.username }}!</span>
-            </li>
             <li class="nav-item align-self-center">
                 <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a>
             </li>
