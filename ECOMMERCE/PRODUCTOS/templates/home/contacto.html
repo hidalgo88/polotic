@@ -1,0 +1,21 @@
+{% extends "home/layout.html" %}
+{% load static %}
+{% block body %}
+
+    <h3>CONTACTATE CON NOSOTROS</h3>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su nombre">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="usuario@ejemplo.com">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" onclick="alert('El mensaje fue enviado!'); window.location = '../home'">Enviar</button>
+
+{% endblock %}

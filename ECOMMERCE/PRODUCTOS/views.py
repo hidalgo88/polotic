@@ -13,6 +13,11 @@ def home(request):
     context = {'productos': productos}
     return render(request, "home/index.html", context)
 
+
+def contacto(request):
+    return render(request, "home/contacto.html")
+
+
 def nosotros(request):
     return render(request, "home/nosotros.html")
 

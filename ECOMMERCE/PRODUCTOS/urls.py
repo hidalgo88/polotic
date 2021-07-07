@@ -14,6 +14,8 @@ urlpatterns = [
 
     path('agregar/', views.agregar, name="agregar"),
 
+    path('contacto/', views.contacto, name="contacto"),
+
     path('nosotros/', views.nosotros, name="nosotros"),
 
     path('eliminar/<int:producto_id>/', views.eliminar, name="eliminar"),
